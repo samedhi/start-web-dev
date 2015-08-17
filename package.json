@@ -1,0 +1,30 @@
+{
+  "name": "start-web-dev",
+  "version": "0.1.0",
+  "description": "A good entry point to doing web development",
+  "main": "main.js",
+  "scripts": {
+    "watchify": "./node_modules/watchify/bin/cmd.js main.js -o bundled.js",
+    "browserify": "./node_modules/browserify/bin/cmd.js main.js > bundled.js",
+    "test": "./node_modules/karma/bin/karma start",
+    "start": "npm run browserify && ./node_modules/static-server/bin/static-server.js --index index.html --debug --port 6060"
+  },
+  "author": "Stephen Cagle <samedhi@gmail.com>",
+  "license": "ISC",
+  "dependencies": {
+    "browserify": "^11.0.1",
+    "immutable": "^3.7.4",
+    "jasmine-core": "^2.3.4",
+    "karma": "^0.13.9",
+    "karma-jasmine": "^0.3.6",
+    "react": "^0.13.3",
+    "react-redux": "^0.8.2",
+    "redux": "^1.0.1"
+  },
+  "devDependencies": {
+    "karma-chrome-launcher": "^0.2.0",
+    "redux-devtools": "^1.0.2",
+    "static-server": "^2.0.0",
+    "watchify": "^3.3.1"
+  }
+}
