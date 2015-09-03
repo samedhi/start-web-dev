@@ -8,7 +8,7 @@ The focus of this is to use om/clojurescript like development for
 Node. In this vein, I use Immutable for all data. I also really like
 the idea of a reducer as put forth by Redux and so I include that as
 well; this gives you a place where all `state + event => state`
-can be centralied. This feels right. Finally, Karma is pretty good at
+can be centralized. This feels right. Finally, Karma is pretty good at
 running your test on save, that is convenient.
 
 
