@@ -1,5 +1,5 @@
-var redux = require("redux");
-var createStore = redux.createStore;
+var redux = require("redux"),
+    Immutable = require('immutable');
 
 /**
  * This is a reducer, a pure function with (state, action) => state signature.
@@ -14,10 +14,10 @@ var createStore = redux.createStore;
  */
 function counter(state, action) {
   switch (action.type) {
+  case 'RESET':
+    return 0;
   case 'INCREMENT':
     return state + 1;
-  case 'DECREMENT':
-    return state - 1;
   default:
     return state;
   }
@@ -25,18 +25,16 @@ function counter(state, action) {
 
 // Create a Redux store holding the state of your app.
 // Its API is { subscribe, dispatch, getState }.
-var store = createStore(counter);
+var store = redux.createStore(counter, 0);
 
 // You can subscribe to the updates manually, or use bindings to your view layer.
 store.subscribe(function () {
-    console.log(store.getState())
+  console.log(store.getState());
 });
 
 // The only way to mutate the internal state is to dispatch an action.
 // The actions can be serialized, logged or stored and later replayed.
+
 store.dispatch({ type: 'INCREMENT' });
-// 1
-store.dispatch({ type: 'INCREMENT' });
-// 2
-store.dispatch({ type: 'DECREMENT' });
-// 1
+
+module.exports = {store: store}
